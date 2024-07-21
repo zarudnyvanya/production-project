@@ -4,7 +4,6 @@ import { buildPlugins } from './buildPlugins'
 import { buildLoaders } from './buildLoaders'
 import { buildResolvers } from './buildResolvers'
 import { buildDevServer } from './buildDevServer'
-import TerserPlugin from 'terser-webpack-plugin'
 import { buildOptimizationPlugins } from './buildOptimizationPlugins'
 
 export const buildWebpackConfig = (options: BuildOptions): Configuration => {
@@ -21,7 +20,7 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'inline-source-map' : undefined,
     optimization: {
