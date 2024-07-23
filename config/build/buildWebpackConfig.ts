@@ -24,7 +24,7 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
     devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'inline-source-map' : undefined,
     optimization: {
-      minimizer: buildOptimizationPlugins(options),
+      minimizer: buildOptimizationPlugins(),
     },
   }
 }
