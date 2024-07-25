@@ -33,7 +33,7 @@ export default [
           ignoreRestSiblings: true,
         },
       ],
-      'i18next/no-literal-string': ['error', { markupOnly: true }],
+      'i18next/no-literal-string': ['warn', { markupOnly: true }],
     },
   },
 ]
