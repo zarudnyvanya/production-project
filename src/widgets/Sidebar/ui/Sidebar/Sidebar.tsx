@@ -4,6 +4,7 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import styles from './Sidebar.module.scss'
 import { BugButton } from 'app/providers/ErrorBoundary'
+import { Button } from 'shared/ui/Button/Button'
 
 interface SidebarProps {
   className?: string
@@ -18,6 +19,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div
+      data-testid="sidebar"
       className={classNames(
         styles.sidebar,
         {
@@ -26,7 +28,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         [className],
       )}
     >
-      <button onClick={onToggle}>toggle</button>
+      <Button data-testid="sidebar-toggle" onClick={onToggle}>
+        toggle
+      </Button>
       <BugButton />
       <div className={styles.switchers}>
         <ThemeSwitcher />
