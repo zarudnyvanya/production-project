@@ -33,7 +33,10 @@ export default [
           ignoreRestSiblings: true,
         },
       ],
-      'i18next/no-literal-string': ['warn', { markupOnly: true }],
+      'i18next/no-literal-string': [
+        'warn',
+        { markupOnly: true, ignoreAllAttributes: ['data-testid', 'to'], files: ['src/**/*.tsx'] },
+      ],
     },
   },
 ]
