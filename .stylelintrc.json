@@ -2,7 +2,8 @@
     "extends": "stylelint-config-standard-scss",
     "rules": {
         "selector-class-pattern": null,
-        "comment-empty-line-before": null
+        "comment-empty-line-before": null,
+        "value-keyword-case": null
     }
 }
 
