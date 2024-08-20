@@ -2,6 +2,7 @@ import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import i18next from 'eslint-plugin-i18next'
+import reactHooks from 'eslint-plugin-react-hooks'
 import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js'
 import { fixupConfigRules } from '@eslint/compat'
 
@@ -12,13 +13,20 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
+  ...reactHooks.configs.recommended.rules,
   {
     plugins: {
-      i18next: i18next,
+      i18next,
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
   {
     rules: {
+      ...reactHooks.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -37,6 +45,8 @@ export default [
         'warn',
         { markupOnly: true, ignoreAllAttributes: ['data-testid', 'to'], files: ['src/**/*.tsx'] },
       ],
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 ]
