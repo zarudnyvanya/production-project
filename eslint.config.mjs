@@ -13,7 +13,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
-  ...reactHooks.configs.recommended.rules,
+
   {
     plugins: {
       i18next,
@@ -26,7 +26,6 @@ export default [
   },
   {
     rules: {
-      ...reactHooks.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
