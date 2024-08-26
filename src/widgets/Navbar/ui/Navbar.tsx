@@ -20,7 +20,6 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
-      <ThemeSwitcher />
       <Button onClick={onToggleModal} theme={ThemeButton.OUTLINE} className={styles.links}>
         {t('Войти')}
       </Button>
