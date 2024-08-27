@@ -8,12 +8,12 @@
     opacity: 0;
     pointer-events: none;
     z-index: -1;
-   
 }
 
 .content {
     max-width: 60%;
     background-color: var(--bg-color);
+    color: var(--primary-color);
     padding: 20px;
     border-radius: 12px;
     transform: scale(0.5);
