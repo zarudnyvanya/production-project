@@ -1,0 +1,18 @@
+.loginform {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+
+    input:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.loginBtn {
+    margin-top: 15px;
+    align-self: flex-end;
+}
