@@ -20,6 +20,12 @@ export const Input = memo((props: InputProps) => {
   const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
+    if (value.length > 0) {
+      setCaretPosition(value.length)
+    }
+  }, [])
+
+  useEffect(() => {
     if (autofocus) {
       setIsFocused(true)
       ref.current.focus()

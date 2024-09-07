@@ -8,6 +8,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import MainIcon from 'shared/assets/icons/main.svg'
 import AboutIcon from 'shared/assets/icons/about.svg'
 import styles from './Sidebar.module.scss'
+import { useTranslation } from 'react-i18next'
 
 interface SidebarProps {
   className?: string
@@ -15,6 +16,8 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false)
+
+  const { t } = useTranslation()
 
   const onToggle = () => {
     setCollapsed((prev) => !prev)
@@ -45,13 +48,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <div className={styles.item}>
           <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={styles.link}>
             <MainIcon className={styles.icon} />
-            <span>Главная </span>
+            <span>{t('Главная')}</span>
           </AppLink>
         </div>
         <div className={styles.item}>
           <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={styles.link}>
             <AboutIcon className={styles.icon} />
-            <span>О нас</span>
+            <span>{t('О нас')}</span>
           </AppLink>
         </div>
       </div>

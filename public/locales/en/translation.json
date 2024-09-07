@@ -9,6 +9,11 @@
     "Обновить страницу": "Reload page",
     "Вызвать ошибку": "Throw an error",
     "Войти": "Sign in",
+    "Выйти": "Sign out",
     "Введите логин": "Enter login",
-    "Введите пароль": "Enter password"
+    "Введите пароль": "Enter password",
+    "Форма авторизации": "Authorization form",
+    "О нас": "About us",
+    "Главная": "Main",
+    "Введён неверный логин или пароль": "Incorrect login or password entered"
 }
