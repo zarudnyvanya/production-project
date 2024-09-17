@@ -50,7 +50,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       <Button onClick={onShowModal} theme={ThemeButton.OUTLINE} className={styles.links}>
         {t('Войти')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   )
 }

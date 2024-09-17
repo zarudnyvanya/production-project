@@ -21,7 +21,7 @@ export default [
     },
     rules: {
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   {
@@ -44,8 +44,8 @@ export default [
         'warn',
         { markupOnly: true, ignoreAllAttributes: ['data-testid', 'to'], files: ['src/**/*.tsx'] },
       ],
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/rules-of-hooks': 'off',
+      'react-hooks/exhaustive-deps': 'off',
       'react/display-name': 'off',
     },
   },
