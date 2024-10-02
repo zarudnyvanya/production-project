@@ -5,12 +5,13 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import styles from './ThemeSwitcher.module.scss'
+import { memo } from 'react'
 
 interface ThemeSwitcherProps {
   className?: string
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -26,4 +27,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       )}
     </Button>
   )
-}
+})

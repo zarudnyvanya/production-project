@@ -1,4 +1,4 @@
-/* eslint-disable react/display-name */
+ 
 import { Decorator } from '@storybook/react/*'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { DeepPartial } from 'app/types'

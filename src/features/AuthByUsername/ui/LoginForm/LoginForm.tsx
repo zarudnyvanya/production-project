@@ -11,12 +11,13 @@ import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLog
 import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError'
 import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading'
-import { AppDispatch } from 'app/providers/StoreProvider/config/store'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import styles from './LoginForm.module.scss'
 
 export interface LoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -24,13 +25,13 @@ const initialReducers: ReducersList = {
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className } = props
+  const { className, onSuccess } = props
   const { t } = useTranslation()
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
   const error = useSelector(getLoginError)
   const isLoading = useSelector(getLoginIsLoading)
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useAppDispatch()
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -46,9 +47,13 @@ const LoginForm = memo((props: LoginFormProps) => {
     [dispatch],
   )
 
-  const onLoginClick = () => {
-    dispatch(loginByUsername({ username, password }))
-  }
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }))
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [dispatch, onSuccess, username, password])
 
   return (
     <DynamicModuleLoader removeAfterUnmount={true} reducers={initialReducers}>

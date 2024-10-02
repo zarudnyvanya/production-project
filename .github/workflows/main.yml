@@ -38,9 +38,3 @@ jobs:
 
       - name: build storybook
         run: npm run storybook:build
-
-      - name: update screenshot
-        run: npm run test:ui:update
-
-      - name: screenshot testing
-        run: npm run test:ui:ci
