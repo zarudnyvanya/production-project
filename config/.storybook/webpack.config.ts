@@ -16,6 +16,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     mode: 'development',
     port: 3000,
     paths,
+    apiUrl: '',
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -37,6 +38,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.plugins?.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(storybookOptions.isDev),
+      __API__: JSON.stringify(storybookOptions.apiUrl),
     }),
   )
 

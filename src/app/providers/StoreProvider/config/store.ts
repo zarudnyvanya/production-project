@@ -1,11 +1,17 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
-import { StateSchema } from './StateSchema'
+import { StateSchema, ThunkExtraArg } from './StateSchema'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { AsyncReducers } from '../ui/StoreProvider'
+import { $api } from 'shared/api/api'
+import { NavigateFunction } from 'react-router-dom'
 
-export function createReduxStore(initialState?: StateSchema, asyncReducers?: AsyncReducers) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: AsyncReducers,
+  navigate?: NavigateFunction,
+) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -14,10 +20,21 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Asy
 
   const reducerManager = createReducerManager(rootReducers)
 
-  const store = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+  const extraArg: ThunkExtraArg = {
+    api: $api,
+    navigate,
+  }
+
+  const store = configureStore({
+    reducer: reducerManager.reduce as unknown as ReducersMapObject<StateSchema>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg,
+        },
+      }),
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -27,5 +44,4 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Asy
   return store
 }
 
-export type RootState = ReturnType<typeof createReducerManager>['reduce']
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

@@ -13,7 +13,6 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
-
   {
     plugins: {
       i18next,

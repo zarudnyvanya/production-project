@@ -6,7 +6,8 @@ export function createReducerManager(
 ): ReducerManager {
   const reducers = { ...initialReducers }
 
-  let combinedReducer = combineReducers(reducers)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let combinedReducer: any = combineReducers(reducers)
 
   let keysToRemove: StateSchemaKey[] = []
 
@@ -20,6 +21,8 @@ export function createReducerManager(
         }
         keysToRemove = []
       }
+
+      console.log('LOOOOOOOOOOG@@@@@', state)
 
       return combinedReducer(state, action)
     },

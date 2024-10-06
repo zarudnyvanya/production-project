@@ -29,12 +29,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     dispatch(userActions.logout())
   }, [dispatch])
 
-  // useEffect(() => {
-  //   if (authData) {
-  //     onCloseModal()
-  //   }
-  // }, [authData])
-
   if (authData) {
     return (
       <div className={classNames(styles.navbar, {}, [className])}>

@@ -9,8 +9,6 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer
 }
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
-
 interface DynamicModuleLoader {
   children?: ReactNode
   reducers: ReducersList
@@ -23,15 +21,15 @@ export const DynamicModuleLoader: FC<DynamicModuleLoader> = (props) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    Object.entries(reducers).map(([name, reducer]: ReducersListEntry) => {
-      return store.reducerManager.add(name, reducer)
+    Object.entries(reducers).map(([name, reducer]) => {
+      return store.reducerManager.add(name as StateSchemaKey, reducer)
     })
     dispatch({ type: `@INIT ${name} reducer` })
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).map(([name, _]: ReducersListEntry) => {
-          return store.reducerManager.remove(name)
+        Object.entries(reducers).map(([name]) => {
+          return store.reducerManager.remove(name as StateSchemaKey)
         })
         dispatch({ type: `@DESTROY ${name} reducer` })
       }
