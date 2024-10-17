@@ -1,3 +1,4 @@
+/* stylelint-disable CssSyntaxError */
 :root {
     --font-family-main: consolas, "Times New Roman", sans-serif;
     --font-size-m: 16px;
@@ -9,7 +10,7 @@
     --font-size-xl: 32px;
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
-
+    
     // Sizes
     --navbar-height: 50px;
     --sidebar-width: 300px;

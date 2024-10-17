@@ -1,5 +1,14 @@
 {
     "Возраст": "Age",
     "Редактировать": "Edit",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Произошла ошибка во время загрузки страницы": "An error occurred while loading the page",
+    "Попробуйте обновить страницу": "Try refreshing the page",
+    "Ваше имя": "Your name",
+    "Ваша фамилия": "Your lastname",
+    "Отменить": "Cancel",
+    "Сохранить": "Save",
+    "Город": "City",
+    "Имя пользователя": "Username",
+    "Аватар": "Avatar"
 }

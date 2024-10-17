@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 import styles from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string
   value?: string
   onChange?: (value: string) => void
   autofocus?: boolean
+  readOnly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -18,6 +19,7 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     autofocus,
+    readOnly,
     className,
     ...otherProps
   } = props
@@ -26,6 +28,8 @@ export const Input = memo((props: InputProps) => {
   const [caretPosition, setCaretPosition] = useState(0)
 
   const ref = useRef<HTMLInputElement>(null)
+
+  const isCaretVisible = isFocused && !readOnly
 
   useEffect(() => {
     if (value.length > 0) {
@@ -38,7 +42,7 @@ export const Input = memo((props: InputProps) => {
       setIsFocused(true)
       ref.current?.focus()
     }
-  }, [autofocus])
+  }, [autofocus, readOnly])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
@@ -59,8 +63,12 @@ export const Input = memo((props: InputProps) => {
     setIsFocused(true)
   }
 
+  const mods: Mods = {
+    [styles.readonly]: readOnly,
+  }
+
   return (
-    <div className={classNames(styles.inputWrapper, {}, [className])}>
+    <div className={classNames(styles.inputWrapper, mods, [className])}>
       {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
       <div className={styles.caretWrapper}>
         <input
@@ -70,11 +78,14 @@ export const Input = memo((props: InputProps) => {
           className={styles.input}
           value={value}
           onChange={onChangeHandler}
+          readOnly={readOnly}
           type={type}
           ref={ref}
           {...otherProps}
         />
-        {isFocused && <span style={{ left: caretPosition * 8.8 }} className={styles.caret}></span>}
+        {isCaretVisible && (
+          <span style={{ left: caretPosition * 8.8 }} className={styles.caret}></span>
+        )}
       </div>
     </div>
   )

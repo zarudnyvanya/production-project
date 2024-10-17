@@ -24,14 +24,14 @@
     }
   ],
   "profile": {
-    "firstName": "Vasya",
+    "firstName": "Petya",
     "lastName": "Pupkin",
     "age": 22,
     "currency": "RUB",
     "country": "Russia",
-    "city": "Moscow",
+    "city": "Rnd",
     "username": "admin",
-    "avatar": "https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fcartoon-game-avatar-logo-gaming-brand_902820-467.jpg&f=1&nofb=1&ipt=f2db7621d6dbdb30be3c4e1edc80d9cc307083848895e231b730f81739d6ff8e&ipo=images"
+    "avatar": "https://img.freepik.com/premium-photo/trees-growing-forest_1048944-30368869.jpg"
   },
   "users": [
     {

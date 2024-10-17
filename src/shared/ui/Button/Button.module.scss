@@ -1,6 +1,7 @@
 .button {
-    padding: 6px 15px;
+    background: none;
     color: var(--primary-color);
+    padding: 6px 15px;
     border: none;
     cursor: pointer;
 }
@@ -37,10 +38,15 @@
 }
 
 .outline {
-    background: none;
     outline: none;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
+}
+
+.outlineRed {
+    outline: none;
+    color: var(--red-light);
+    border: 1px solid var(--red-light);
 }
 
 .background {

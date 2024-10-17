@@ -22,8 +22,6 @@ export function createReducerManager(
         keysToRemove = []
       }
 
-      console.log('LOOOOOOOOOOG@@@@@', state)
-
       return combinedReducer(state, action)
     },
 
