@@ -4,7 +4,7 @@ import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePageAsync } from 'pages/ProfilePage'
 import { MainPageAsync } from 'pages/MainPage'
 
-type AppRoutesProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean
 }
 
