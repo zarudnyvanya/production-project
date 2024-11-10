@@ -10,7 +10,7 @@ import {
   profileReducer,
   ValidateProfileError,
 } from 'entities/Profile'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -19,6 +19,7 @@ import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 export const reducers: ReducersList = {
   profile: profileReducer,
@@ -46,10 +47,8 @@ const ProfilePage = (props: ProfilePageProps) => {
     [ValidateProfileError.SERVER_ERROR]: t('Ошибка со стороны сервера'),
   }
 
-  useEffect(() => {
-    if (__PROJECT__ === 'frontend') {
-      dispatch(fetchProfileData())
-    }
+  useInitialEffect(() => {
+    dispatch(fetchProfileData())
   }, [dispatch])
 
   const onChangeFirstName = useCallback(

@@ -9,12 +9,13 @@ describe('loginByUsername.test', () => {
   // beforeEach(() => {
   //   dispatch = jest.fn()
   //   getState = jest.fn()
-  // })
+  // })pArticleDetailsPage
 
   test('success login', async () => {
     const userValue = {
       id: '1',
       username: '123',
+      avatar: '',
     }
     const thunk = new TestAsyncThunk(loginByUsername)
 
