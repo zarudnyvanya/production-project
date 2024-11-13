@@ -20,6 +20,7 @@ import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 export const reducers: ReducersList = {
   profile: profileReducer,
@@ -35,6 +36,8 @@ const ProfilePage = (props: ProfilePageProps) => {
   const readonly = useSelector(getProfileReadonly)
   const errors = useSelector(getProfileValidateErrors)
 
+  const { id } = useParams<{ id: string }>()
+
   const { t } = useTranslation('profile')
 
   const dispatch = useAppDispatch()
@@ -48,7 +51,7 @@ const ProfilePage = (props: ProfilePageProps) => {
   }
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData())
+    dispatch(fetchProfileData(id))
   }, [dispatch])
 
   const onChangeFirstName = useCallback(

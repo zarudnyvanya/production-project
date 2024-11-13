@@ -16,5 +16,6 @@
     "О нас": "About us",
     "Главная": "Main",
     "Введён неверный логин или пароль": "Incorrect login or password entered",
-    "Комментарии отсутствуют": "There are no comments yet"
+    "Комментарии отсутствуют": "There are no comments yet",
+    "Введите текс комментария": "Enter comment text"
 }

@@ -15,32 +15,76 @@
     {
       "id": "1",
       "articleId": "1",
-      "userId": "1", 
+      "userId": "1",
       "text": "a comment about post 1"
     },
     {
       "id": "2",
       "articleId": "1",
-      "userId": "1", 
+      "userId": "1",
       "text": "a comment about post 2"
     },
     {
       "id": "3",
       "articleId": "1",
-      "userId": "2", 
+      "userId": "2",
       "text": "a comment about post 3"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "com1",
+      "id": "0cMSumb"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "com2",
+      "id": "djP9kQL"
+    },
+    {
+      "articleId": 1,
+      "userId": 1,
+      "text": "dddd",
+      "id": "q1wP_Eg"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет мир",
+      "id": "I56v1Ex"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "кс",
+      "id": "b5Evufh"
     }
   ],
-  "profile": {
-    "firstName": "Petya",
-    "lastName": "Pupkin",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Rnd",
-    "username": "admin",
-    "avatar": "https://img.freepik.com/premium-photo/trees-growing-forest_1048944-30368869.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Secondzzzz",
+      "lastName": "Pupkin",
+      "age": 32,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Rnd",
+      "username": "secondUser",
+      "avatar": "https://img.freepik.com/premium-photo/trees-growing-forest_1048944-30368869.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "Vanya",
+      "lastName": "Pupkin",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Rnd",
+      "username": "firstUser",
+      "avatar": "https://fps.cdnpk.net/images/ai/image-generator/gallery/resource-tti-14.webp"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -59,52 +103,52 @@
   ],
   "articles": [
     {
-    "id": "1",
-    "title": "Javascript news",
-    "subtitle": "What's new in js in 2024",
-    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images",
-    "views": 789,
-    "createdAt": "26.02.2024",
-    "type": ["IT"],
-    "blocks": [
-      {
-        "id": "1",
-        "type": "TEXT",
-        "title": "Zagolovok blocka",
-        "paragraphs": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non itaque velit vitae explicabo quidem autem nulla repellat quibusdam fugit?",
-          "non itaque velit vitae explicabo quidem"
-        ]
-      },
-      {
-        "id": "4",
-        "type": "CODE",
-        "code": "const server = jsonServer.create()\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'))\n\nserver.use(jsonServer.defaults({}))"
-      },
-      {
-        "id": "5",
-        "type": "TEXT",
-        "title": "Zagolovok Etogo blocka",
-        "paragraphs": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
-           "non itaque velit vitae explicabo quidem"
-        ]
-      },
-      {
-        "id": "2",
-        "type": "IMAGE",
-        "src": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbuiltin.com%2Fsites%2Fwww.builtin.com%2Ffiles%2Fstyles%2Fckeditor_optimize%2Fpublic%2Finline-images%2F2_react-js-image.jpg&f=1&nofb=1&ipt=cc11a359d1a23715c9e9ba49ba3e144f5e650ff3e4cedd5e42369681d80f23c5&ipo=images",
-        "title": "Picture 1 - js code"
-      },
-      {
-        "id": "3",
-        "type": "CODE",
-        "code": "export const AppLink = memo((props: AppLinkProps) => {\n  const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props\n\n  return (\n    <Link \n  to={to}\n  className={classNames(styles.appLink, {}, [className, styles[theme]])}\n  {...otherProps}\n >\n     {children}\n </Link>\n)\n })"
-      }
-    ]
+      "id": "1",
+      "title": "Javascript news",
+      "subtitle": "What's new in js in 2024",
+      "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images",
+      "views": 789,
+      "createdAt": "26.02.2024",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Zagolovok blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non itaque velit vitae explicabo quidem autem nulla repellat quibusdam fugit?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const server = jsonServer.create()\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'))\n\nserver.use(jsonServer.defaults({}))"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Zagolovok Etogo blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbuiltin.com%2Fsites%2Fwww.builtin.com%2Ffiles%2Fstyles%2Fckeditor_optimize%2Fpublic%2Finline-images%2F2_react-js-image.jpg&f=1&nofb=1&ipt=cc11a359d1a23715c9e9ba49ba3e144f5e650ff3e4cedd5e42369681d80f23c5&ipo=images",
+          "title": "Picture 1 - js code"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "export const AppLink = memo((props: AppLinkProps) => {\n  const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props\n\n  return (\n    <Link \n  to={to}\n  className={classNames(styles.appLink, {}, [className, styles[theme]])}\n  {...otherProps}\n >\n     {children}\n </Link>\n)\n })"
+        }
+      ]
     }
-
   ]
-
 }
