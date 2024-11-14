@@ -30,7 +30,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
   return (
     <div className={classNames(styles.CommentCard, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}/${comment?.user.id}`} className={styles.header}>
+      <AppLink to={`${RoutePath.profile}${comment?.user.id}`} className={styles.header}>
         <Avatar src={comment?.user.avatar} customSize={30} />
         <Text title={comment?.user.username} />
       </AppLink>
