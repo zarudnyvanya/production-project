@@ -104,6 +104,7 @@
   "articles": [
     {
       "id": "1",
+      "userId": 1,
       "title": "Javascript news",
       "subtitle": "What's new in js in 2024",
       "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images",

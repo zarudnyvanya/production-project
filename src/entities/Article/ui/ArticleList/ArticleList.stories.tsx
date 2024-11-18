@@ -1,18 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ArticleList } from './ArticleList'
+import { Article, ArticleView } from 'entities/Article/model/types/article'
 
-import { ArticleDetails } from './ArticleDetails'
-import { ArtcileBlockType, ArtcileType, Article } from 'entities/Article/model/types/article'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-
-const meta: Meta<typeof ArticleDetails> = {
-  title: 'entities/ArticleDetails',
-  component: ArticleDetails,
+const meta: Meta<typeof ArticleList> = {
+  title: 'entities/ArticleList',
+  component: ArticleList,
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleDetails>
+type Story = StoryObj<typeof ArticleList>
 
-const article: Article = {
+const article = {
   id: '1',
   user: {
     id: '1',
@@ -21,14 +19,14 @@ const article: Article = {
   },
   title: 'Javascript news',
   subtitle: "What's new in js in 2024",
-  img: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images',
+  img: 'https://i.pinimg.com/originals/ba/bd/6d/babd6d37eb2dd965c7f1dfb516d54094.jpg',
   views: 789,
   createdAt: '26.02.2024',
-  type: [ArtcileType.IT],
+  type: ['IT', 'POLITIC', 'SCIENCE'],
   blocks: [
     {
       id: '1',
-      type: ArtcileBlockType.TEXT,
+      type: 'TEXT',
       title: 'Zagolovok blocka',
       paragraphs: [
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?',
@@ -38,12 +36,12 @@ const article: Article = {
     },
     {
       id: '4',
-      type: ArtcileBlockType.CODE,
+      type: 'CODE',
       code: "const server = jsonServer.create()\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'))\n\nserver.use(jsonServer.defaults({}))",
     },
     {
       id: '5',
-      type: ArtcileBlockType.TEXT,
+      type: 'TEXT',
       title: 'Zagolovok Etogo blocka',
       paragraphs: [
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?',
@@ -52,47 +50,40 @@ const article: Article = {
     },
     {
       id: '2',
-      type: ArtcileBlockType.IMAGE,
+      type: 'IMAGE',
       src: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbuiltin.com%2Fsites%2Fwww.builtin.com%2Ffiles%2Fstyles%2Fckeditor_optimize%2Fpublic%2Finline-images%2F2_react-js-image.jpg&f=1&nofb=1&ipt=cc11a359d1a23715c9e9ba49ba3e144f5e650ff3e4cedd5e42369681d80f23c5&ipo=images',
       title: 'Picture 1 - js code',
     },
     {
       id: '3',
-      type: ArtcileBlockType.CODE,
+      type: 'CODE',
       code: 'export const AppLink = memo((props: AppLinkProps) => {\n  const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props\n\n  return (\n    <Link \n  to={to}\n  className={classNames(styles.appLink, {}, [className, styles[theme]])}\n  {...otherProps}\n >\n     {children}\n </Link>\n)\n })',
     },
   ],
+} as Article
+
+export const ArticleSmall: Story = {
+  args: {
+    articles: [article],
+  },
 }
 
-export const Primary: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      articleDetails: {
-        data: article,
-      },
-    }),
-  ],
+export const ArticleBig: Story = {
+  args: {
+    articles: [article],
+    view: ArticleView.BIG,
+  },
 }
 
-export const Loading: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      articleDetails: {
-        isLoading: true,
-      },
-    }),
-  ],
+export const ArticleSmallLoading: Story = {
+  args: {
+    isLoading: true,
+  },
 }
 
-export const Error: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      articleDetails: {
-        error: 'Error',
-      },
-    }),
-  ],
+export const ArticleBigLoading: Story = {
+  args: {
+    isLoading: true,
+    view: ArticleView.BIG,
+  },
 }
