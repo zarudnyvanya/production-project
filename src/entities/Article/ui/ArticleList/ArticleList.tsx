@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { Article, ArticleView } from 'entities/Article/model/types/article'
-import styles from './ArticleList.module.scss'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import styles from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string

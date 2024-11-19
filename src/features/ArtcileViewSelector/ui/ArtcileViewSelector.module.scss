@@ -1,0 +1,13 @@
+.ArtcileViewSelector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    fill: var(--secondary-color);
+}
+
+.selected {
+    fill: var(--primary-color);
+}

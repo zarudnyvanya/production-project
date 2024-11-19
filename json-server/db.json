@@ -59,6 +59,18 @@
       "userId": "1",
       "text": "кс",
       "id": "b5Evufh"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "css",
+      "id": "jBsEJSN"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "python",
+      "id": "ktHonyX"
     }
   ],
   "profile": [
@@ -110,6 +122,104 @@
       "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images",
       "views": 789,
       "createdAt": "26.02.2024",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Zagolovok blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non itaque velit vitae explicabo quidem autem nulla repellat quibusdam fugit?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const server = jsonServer.create()\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'))\n\nserver.use(jsonServer.defaults({}))"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Zagolovok Etogo blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbuiltin.com%2Fsites%2Fwww.builtin.com%2Ffiles%2Fstyles%2Fckeditor_optimize%2Fpublic%2Finline-images%2F2_react-js-image.jpg&f=1&nofb=1&ipt=cc11a359d1a23715c9e9ba49ba3e144f5e650ff3e4cedd5e42369681d80f23c5&ipo=images",
+          "title": "Picture 1 - js code"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "export const AppLink = memo((props: AppLinkProps) => {\n  const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props\n\n  return (\n    <Link \n  to={to}\n  className={classNames(styles.appLink, {}, [className, styles[theme]])}\n  {...otherProps}\n >\n     {children}\n </Link>\n)\n })"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "title": "Python news",
+      "subtitle": "What's new in js in 2024",
+      "img": "https://cdn-edge.kwork.ru/pics/t3/18/20759355-1652725018.jpg",
+      "views": 435,
+      "createdAt": "29.02.2024",
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Zagolovok blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non itaque velit vitae explicabo quidem autem nulla repellat quibusdam fugit?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const server = jsonServer.create()\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'))\n\nserver.use(jsonServer.defaults({}))"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Zagolovok Etogo blocka",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quod?",
+            "non itaque velit vitae explicabo quidem"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbuiltin.com%2Fsites%2Fwww.builtin.com%2Ffiles%2Fstyles%2Fckeditor_optimize%2Fpublic%2Finline-images%2F2_react-js-image.jpg&f=1&nofb=1&ipt=cc11a359d1a23715c9e9ba49ba3e144f5e650ff3e4cedd5e42369681d80f23c5&ipo=images",
+          "title": "Picture 1 - js code"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "export const AppLink = memo((props: AppLinkProps) => {\n  const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props\n\n  return (\n    <Link \n  to={to}\n  className={classNames(styles.appLink, {}, [className, styles[theme]])}\n  {...otherProps}\n >\n     {children}\n </Link>\n)\n })"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "userId": 1,
+      "title": "CSS news",
+      "subtitle": "What's new in css in 2024",
+      "img": "https://i.pinimg.com/originals/5e/06/3c/5e063c477e797d46fc6edb6c9fa10bf4.webp",
+      "views": 631,
+      "createdAt": "05.03.2024",
       "type": [
         "IT"
       ],

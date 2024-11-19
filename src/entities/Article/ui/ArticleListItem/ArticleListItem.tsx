@@ -7,11 +7,11 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import EyeIcon from 'shared/assets/icons/eye.svg'
-import styles from './ArticleListItem.module.scss'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import styles from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {
   className?: string
