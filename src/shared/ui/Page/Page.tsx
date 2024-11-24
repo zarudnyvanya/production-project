@@ -15,7 +15,7 @@ export const Page = (props: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLElement>
   const triggerRef = useRef() as MutableRefObject<HTMLElement>
 
-  const ref = useInfiniteScroll({
+  useInfiniteScroll({
     wrapperRef,
     triggerRef,
     callback: onScrollEnd,
