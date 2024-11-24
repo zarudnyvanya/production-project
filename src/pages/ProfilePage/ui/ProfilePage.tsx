@@ -21,6 +21,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 
 export const reducers: ReducersList = {
   profile: profileReducer,
@@ -101,26 +102,28 @@ const ProfilePage = (props: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ProfilePageHeader readonly={readonly} />
-      {errors &&
-        errors.length > 0 &&
-        errors.map((error) => (
-          <Text theme={TextTheme.ERROR} key={error} text={validateErrorTranslates[error]} />
-        ))}
-      <ProfileCard
-        data={formData}
-        readonly={readonly}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <Page>
+        <ProfilePageHeader readonly={readonly} />
+        {errors &&
+          errors.length > 0 &&
+          errors.map((error) => (
+            <Text theme={TextTheme.ERROR} key={error} text={validateErrorTranslates[error]} />
+          ))}
+        <ProfileCard
+          data={formData}
+          readonly={readonly}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </Page>
     </DynamicModuleLoader>
   )
 }

@@ -4,9 +4,9 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
-import styles from './Sidebar.module.scss'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
+import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
   className?: string
@@ -21,7 +21,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   }
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={classNames(
         styles.sidebar,
@@ -50,6 +50,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={styles.lang} />
       </div>
-    </div>
+    </menu>
   )
 })

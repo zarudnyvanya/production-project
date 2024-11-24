@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { CSSProperties, SyntheticEvent, useMemo } from 'react'
-import avatar from './../../assets/avatar.jpg'
+import avatar from 'shared/assets/avatar.jpg'
 import styles from './Avatar.module.scss'
 
 export enum AvatarSize {
