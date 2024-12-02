@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux'
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
   getArticlesPageNum,
   getArticlesPageView,
@@ -23,6 +24,7 @@ import { ArtcileViewSelector } from 'features/ArtcileViewSelector'
 import { Page } from 'shared/ui/Page/Page'
 import styles from './ArticlesPage.module.scss'
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
 
 interface ArticlesPageProps {
   className?: string
@@ -39,18 +41,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const page = useSelector(getArticlesPageNum)
   const hasMore = useSelector(getArticlesPageHasMore)
   const isLoading = useSelector(getArticlesPageIsLoading)
-  const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
 
   const dispatch = useAppDispatch()
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState())
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      }),
-    )
+    dispatch(initArticlesPage())
   }, [dispatch])
 
   const onViewClick = useCallback(
@@ -65,7 +61,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [page, hasMore, isLoading])
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadNextPart}
         className={classNames(styles.ArticlesPage, {}, [className])}
