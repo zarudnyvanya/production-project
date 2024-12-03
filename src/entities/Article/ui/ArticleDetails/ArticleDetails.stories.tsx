@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleDetails } from './ArticleDetails'
-import { ArtcileBlockType, ArtcileType, Article } from 'entities/Article/model/types/article'
+import { ArtcileBlockType, ArticleType, Article } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta: Meta<typeof ArticleDetails> = {
@@ -24,7 +24,7 @@ const article: Article = {
   img: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih1.redbubble.net%2Fimage.316760221.5828%2Fflat%2C800x800%2C075%2Cf.jpg&f=1&nofb=1&ipt=a5d61c10adcb28ab54bf5a9e06d22e20965d1f61560f3eb9d3899968a71a772d&ipo=images',
   views: 789,
   createdAt: '26.02.2024',
-  type: [ArtcileType.IT],
+  type: [ArticleType.IT],
   blocks: [
     {
       id: '1',

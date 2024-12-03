@@ -6,12 +6,14 @@ import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { LoginSchema } from 'features/AuthByUsername'
+import { UiSchema } from 'features/UI'
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  ui: UiSchema
 
   // Async reducers
   loginForm?: LoginSchema
@@ -29,7 +31,6 @@ export interface ReducerManager {
   reduce: (state: StateSchema, action: UnknownAction) => StateSchema
   add: (key: StateSchemaKey, reducer: Reducer) => void
   remove: (key: StateSchemaKey) => void
-  // getMountedReducers: () => void
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
