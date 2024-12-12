@@ -13,7 +13,6 @@
 .recommendations {
     display: flex;
     flex-wrap: nowrap;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: auto hidden;
     margin-bottom: 20px;
 }
