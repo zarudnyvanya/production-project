@@ -5,9 +5,13 @@
     background-color: var(--inverted-bg-color);
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .mainLink {
     margin-right: 15px; 
+}
+
+.appName {
+    width: var(--sidebar-width);
 }
