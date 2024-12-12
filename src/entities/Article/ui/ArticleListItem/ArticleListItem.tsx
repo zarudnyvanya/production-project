@@ -8,26 +8,21 @@ import { Button } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import EyeIcon from 'shared/assets/icons/eye.svg'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
-import { useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { HTMLAttributeAnchorTarget, useCallback } from 'react'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import styles from './ArticleListItem.module.scss'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 
 interface ArticleListItemProps {
   className?: string
   article: Article
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
-  const { className, article, view = ArticleView.SMALL } = props
+  const { className, article, view = ArticleView.SMALL, target } = props
   const { t } = useTranslation()
-
-  const navigate = useNavigate()
-
-  const onOpenArticle = useCallback(() => {
-    navigate(`${RoutePath.article_details}/${article.id}`)
-  }, [article.id, navigate])
 
   const types = <Text text={article.type.join(', ')} className={styles.types} />
   const views = (
@@ -55,7 +50,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           </div>
           {textBlock && <ArticleTextBlock block={textBlock} className={styles.textBlock} />}
           <div className={styles.footer}>
-            <Button onClick={onOpenArticle}>{t('Читать далее')}</Button>
+            <AppLink target={target} to={`${RoutePath.article_details}/${article.id}`}>
+              <Button>{t('Читать далее')}</Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -64,18 +61,20 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   }
 
   return (
-    <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
-      <Card onClick={onOpenArticle}>
-        <div className={styles.imageWrapper}>
-          <img className={styles.img} src={article.img} alt={article.img} />
-          <Text className={styles.date} text={article.createdAt} />
-        </div>
-        <div className={styles.footer}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={styles.title} />
-      </Card>
-    </div>
+    <AppLink target={target} to={`${RoutePath.article_details}/${article.id}`}>
+      <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+        <Card>
+          <div className={styles.imageWrapper}>
+            <img className={styles.img} src={article.img} alt={article.img} />
+            <Text className={styles.date} text={article.createdAt} />
+          </div>
+          <div className={styles.footer}>
+            {types}
+            {views}
+          </div>
+          <Text text={article.title} className={styles.title} />
+        </Card>
+      </div>
+    </AppLink>
   )
 }

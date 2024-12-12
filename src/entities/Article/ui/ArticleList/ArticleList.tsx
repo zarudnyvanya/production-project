@@ -4,6 +4,7 @@ import { Article, ArticleView } from 'entities/Article/model/types/article'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { HTMLAttributeAnchorTarget } from 'react'
 import styles from './ArticleList.module.scss'
 
 interface ArticleListProps {
@@ -11,6 +12,7 @@ interface ArticleListProps {
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -20,12 +22,12 @@ const getSkeletons = (view: ArticleView) => {
 }
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articles, view = ArticleView.SMALL, isLoading } = props
+  const { className, articles, view = ArticleView.SMALL, isLoading, target } = props
 
   const { t } = useTranslation()
 
   const renderArticle = (article: Article) => {
-    return <ArticleListItem key={article.id} article={article} view={view} />
+    return <ArticleListItem key={article.id} article={article} view={view} target={target} />
   }
 
   if (!isLoading && !articles.length) {

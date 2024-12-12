@@ -1,3 +1,19 @@
+.articleDetails {
+    margin-bottom: 20px;
+}
+
 .commentTitle {
-    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.recommendationsTitle {
+    margin-bottom: 10px;
+}
+
+.recommendations {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin-bottom: 20px;
 }
