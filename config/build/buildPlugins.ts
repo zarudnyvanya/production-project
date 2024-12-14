@@ -28,7 +28,7 @@ export const buildPlugins = ({
       __PROJECT__: JSON.stringify(project),
     }),
     new Dotenv({
-      path: './.env',
+      path: './../../.env',
       systemvars: true,
     }),
     new CopyPlugin({
