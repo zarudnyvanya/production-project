@@ -1,11 +1,13 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import Dotenv from 'dotenv-webpack'
+// import ESLintPlugin from 'eslint-webpack-plugin'
 
 import CopyPlugin from 'copy-webpack-plugin'
 import { ProgressPlugin, DefinePlugin, WebpackPluginInstance } from 'webpack'
 import { BuildOptions } from './types/config'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+// import path from 'node:path'
 
 export const buildPlugins = ({
   paths,
@@ -27,6 +29,10 @@ export const buildPlugins = ({
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
+    // new ESLintPlugin({
+    //   overrideConfigFile: path.resolve(__dirname, 'eslint.config.mjs'),
+    //   configType: 'flat',
+    // }),
     new Dotenv({
       path: './../../.env',
       systemvars: true,
