@@ -31,6 +31,13 @@ export const onlyText: Story = {
   },
 }
 
+export const sizeTextS: Story = {
+  args: {
+    text: 'lorem ipsum blalbla',
+    size: TextSize.S,
+  },
+}
+
 export const sizeTextL: Story = {
   args: {
     text: 'lorem ipsum blalbla',
