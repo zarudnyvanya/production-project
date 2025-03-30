@@ -1,0 +1,41 @@
+.button {
+  width: 100%;
+  position: relative;
+  background-color: var(--listbox-bg);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  text-align: left;
+}
+
+.options {
+  width: var(--button-width);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--listbox-bg);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+
+  .icon {
+    opacity: 0;
+  }
+
+  &[data-focus] {
+    background-color: var(--inverted-primary-color);
+  }
+
+  &[data-selected] .icon{
+    opacity: 1;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+}
+

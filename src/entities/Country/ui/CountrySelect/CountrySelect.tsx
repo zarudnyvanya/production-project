@@ -1,7 +1,7 @@
-import { Select } from 'shared/ui/Select/Select'
 import { Country } from './../../model/types/country'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { ListBox } from 'shared/ui/ListBox/ListBox'
 
 interface CountrySelectProps {
   className?: string
@@ -30,11 +30,11 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   }, [])
 
   return (
-    <Select
-      label={t('Выберите страну')}
+    <ListBox
       value={value}
+      defaultValue={t('Выберите значение')}
       onChange={onChangeHandler}
-      options={options}
+      items={options}
       readonly={readonly}
     />
   )
