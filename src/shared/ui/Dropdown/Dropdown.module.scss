@@ -1,0 +1,36 @@
+.Dropdown {
+    position: relative;
+}
+
+.button {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.menu {
+    background: var(--card-bg);
+    position: absolute;
+    z-index: 999;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    width: 100%;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--primary-color);
+    cursor: pointer;
+
+    &[data-focus] {
+        background-color: var(--inverted-secondary-color);
+    }
+}
