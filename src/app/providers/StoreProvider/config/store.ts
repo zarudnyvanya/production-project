@@ -6,6 +6,7 @@ import { createReducerManager } from './reducerManager'
 import { AsyncReducers } from '../ui/StoreProvider'
 import { $api } from 'shared/api/api'
 import { uiReducer } from 'features/UI'
+import { api } from 'shared/api/rtkApi'
 
 export function createReduxStore(initialState?: StateSchema, asyncReducers?: AsyncReducers) {
   const rootReducers: ReducersMapObject<StateSchema> = {
@@ -13,6 +14,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Asy
     counter: counterReducer,
     user: userReducer,
     ui: uiReducer,
+    [api.reducerPath]: api.reducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)
@@ -30,7 +32,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Asy
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(api.middleware),
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

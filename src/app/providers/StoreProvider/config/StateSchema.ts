@@ -9,6 +9,7 @@ import { LoginSchema } from 'features/AuthByUsername'
 import { UiSchema } from 'features/UI'
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { api } from 'shared/api/rtkApi'
 
 export interface StateSchema {
   counter: CounterSchema
@@ -22,6 +23,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlesPageSchema
   articleDetailsPage?: ArticleDetailsPageSchema
+  [api.reducerPath]: ReturnType<typeof api.reducer>
 }
 
 export type StateSchemaKey = keyof StateSchema
